@@ -1,6 +1,6 @@
 README
 =============
-#### [This course(click)](https://www.coursera.org/specializations/object-oriented-programming "course link") is provided by University of California San Diego and Duke University on Coursera.
+#### [This course(click)](https://www.coursera.org/learn/java-programming "course link") is provided by University of California San Diego and Duke University on Coursera.
 
 
 * * *
