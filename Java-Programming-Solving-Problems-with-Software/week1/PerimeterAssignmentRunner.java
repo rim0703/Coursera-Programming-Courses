@@ -1,7 +1,5 @@
 import edu.duke.*;
 import edu.duke.Point;
-
-import java.awt.desktop.ScreenSleepEvent;
 import java.io.File;
 
 public class PerimeterAssignmentRunner {
