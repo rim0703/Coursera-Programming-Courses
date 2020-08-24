@@ -1,7 +1,7 @@
 
 #### This specialization course is provided by University of California San Diego and Duke University on Coursera
 
-#### Specialization Course Link: [Object Oriented Programming in Java Specialization](https://www.coursera.org/specializations/java-programming "Object Oriented Programming in Java") 
+#### Specialization Course Link: [Object Oriented Programming in Java Specialization](https://www.coursera.org/specializations/object-oriented-programming "Object Oriented Programming in Java") 
 
 * * *
 ### < Check List >
