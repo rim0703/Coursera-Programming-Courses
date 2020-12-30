@@ -1,78 +1,49 @@
 import edu.duke.FileResource;
 
 public class WordLengths {
-    public static void countWordLengths(FileResource resource, int[] counts){
-        String[] str=new String[counts.length];
-        String[] res=resource.asString().split(" ");
+    public static void countWordLengths(FileResource Resource, int[] counts) {
 
-        for(int i=0;i<res.length;i++){
-            if(res[i].contains("\n")){
-                res[i]=res[i].substring(0,res[i].length()-1);
+        for (String word : Resource.words()){
+            int Wordlength = word.length();
+            for (int i=0; i<word.length();i++){
+                char currChar = word.charAt(i);
+                if ((i==0) || (i==word.length()-1)){
+                    if (!Character.isLetter(currChar)) Wordlength--;
+                }
             }
-            if(res[i].length()>0){
-                if(Character.isLetter(res[i].charAt(0))&&
-                        Character.isLetter(res[i].charAt(res[i].length()-1))){
-                    if(str[res[i].length()]==null){
-                        str[res[i].length()]="";
-                    }
-                    str[res[i].length()]+=res[i]+" ";
-                    counts[res[i].length()]++;
-                }
-                else if(!Character.isLetter(res[i].charAt(0))&&
-                        Character.isLetter(res[i].charAt(res[i].length()-1))){
-                    if(str[res[i].length()-1]==null){
-                        str[res[i].length()-1]="";
-                    }
-                    str[res[i].length()-1]+=res[i].substring(1)+" ";
-                    counts[res[i].length()-1]++;
-                }
-                else if(Character.isLetter(res[i].charAt(0))&&
-                        !Character.isLetter(res[i].charAt(res[i].length()-1))){
-                    if(str[res[i].length()-1]==null){
-                        str[res[i].length()-1]="";
-                    }
-                    str[res[i].length()-1]+=res[i].substring(0,res[i].length()-1)+" ";
-                    counts[res[i].length()-1]++;
-                }
-                else if(!Character.isLetter(res[i].charAt(0))&&
-                        !Character.isLetter(res[i].charAt(res[i].length()-1))){
-                    if(str[res[i].length()-2]==null){
-                        str[res[i].length()-2]="";
-                    }
-                    str[res[i].length()-2]+=res[i].substring(1,res[i].length()-1)+" ";
-                    counts[res[i].length()-2]++;
-                }
-
-            }
-
-
+            counts[Wordlength]++;
+            System.out.println(" Words of length "+ Wordlength +" "+ word);
         }
 
-        for(int i=0;i<str.length;i++){
-            if(str[i]!=null){
-                if(counts[i]>1){
-                    System.out.print(counts[i]+" words");
-                }else if(counts[i]==1){
-                    System.out.print(counts[i]+" word");
-                }
-                System.out.println(" of length "+i+": "+str[i]);
+    }
+
+
+    public static void indexOfMax(int[] values) {
+
+        int max = 0;
+        int position = 0;
+        for (int i = 0; i <values.length;i++)
+        {
+            if (values[i] > max)
+            {
+                max = values[i];
+                position = i;
             }
         }
 
+        System.out.println("The most common word is :"+ position);
 
+    }
+
+
+    static void testCountWordLengths(){
+        FileResource Resource = new FileResource();
+        int [] counts = new int[31];
+        countWordLengths(Resource,counts);
         indexOfMax(counts);
+    }
 
-    }
-    public static void testCountWordLengths(){
-        FileResource file=new FileResource();
-        int[] arr=new int[31];
-        countWordLengths(file,arr);
-    }
-    public static int indexOfMax(int[] values){
-        int result=0;
-        return result;
 
-    }
     public static void main(String[] args){
         testCountWordLengths();
     }
